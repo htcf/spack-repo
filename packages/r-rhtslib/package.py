@@ -18,6 +18,7 @@ class RRhtslib(RPackage):
     homepage = "https://bioconductor.org/packages/Rhtslib"
     git      = "https://git.bioconductor.org/packages/Rhtslib.git"
 
+    version('1.99.5', commit='a5335e1fea92ea06c33d42c7e290b6d8b4245ad3')
     version('1.22.0', commit='899b79faa54d42c7c9b9a2bc49972109637d367f')
     version('1.18.1', commit='751a2ebaed43b7991204b27bd6c7870645001d82')
     version('1.16.3', commit='3ed0b5db2ee3cf0df1c6096fde8855c8485eebd4')
@@ -37,9 +38,9 @@ class RRhtslib(RPackage):
     # available
     depends_on('patchelf', when='@1.12:1.14', type='build')
 
-    patch('use_spack_Makeconf.patch', when='@1.12:')
+    patch('use_spack_Makeconf.patch', when='@1.12:1.22.0')
     patch('find_deps-1.12.patch', when='@1.12:1.14')
-    patch('find_deps-1.16.patch', when='@1.16:')
+    patch('find_deps-1.16.patch', when='@1.16:1.22.0')
 
     @when('@1.12:')
     def setup_build_environment(self, env):
